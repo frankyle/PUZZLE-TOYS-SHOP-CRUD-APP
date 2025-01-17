@@ -1,7 +1,12 @@
-from rest_framework import viewsets
+from rest_framework import generics
 from .models import Puzzle
 from .serializers import PuzzleSerializer
 
-class PuzzleViewSet(viewsets.ModelViewSet):
+# Puzzles Views
+class PuzzleListCreateView(generics.ListCreateAPIView):
+    queryset = Puzzle.objects.all()
+    serializer_class = PuzzleSerializer
+
+class PuzzleRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Puzzle.objects.all()
     serializer_class = PuzzleSerializer

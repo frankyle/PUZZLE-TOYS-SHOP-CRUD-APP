@@ -1,10 +1,7 @@
-from django.urls import path, include
-from rest_framework.routers import DefaultRouter
-from .views import ToyViewSet
-
-router = DefaultRouter()
-router.register(r'toys', ToyViewSet)
+from django.urls import path
+from .views import ToyListCreateView, ToyRetrieveUpdateDestroyView
 
 urlpatterns = [
-    path('', include(router.urls)),
+    path('toys/', ToyListCreateView.as_view(), name='toy-list-create'),
+    path('toys/<int:pk>/', ToyRetrieveUpdateDestroyView.as_view(), name='toy-detail'),
 ]
