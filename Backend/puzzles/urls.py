@@ -1,10 +1,7 @@
-from django.urls import path, include
-from rest_framework.routers import DefaultRouter
-from .views import PuzzleViewSet
-
-router = DefaultRouter()
-router.register(r'puzzles', PuzzleViewSet)
+from django.urls import path
+from .views import PuzzleListCreateView, PuzzleRetrieveUpdateDestroyView
 
 urlpatterns = [
-    path('', include(router.urls)),
+    path('puzzles/', PuzzleListCreateView.as_view(), name='puzzle-list-create'),
+    path('puzzles/<int:pk>/', PuzzleRetrieveUpdateDestroyView.as_view(), name='puzzle-detail'),
 ]
