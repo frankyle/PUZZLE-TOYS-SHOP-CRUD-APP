@@ -1,3 +1,6 @@
+# **Baby steps Shop**
+![alt text](image.png)
+
 # **Puzzle Shop Management CRUD App**
 ![alt text](image-5.png)
 
