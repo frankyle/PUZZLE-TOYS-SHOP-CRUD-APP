@@ -7,6 +7,7 @@ const ToyForm = ({ toy, setEditingToy, fetchToys }) => {
     description: "",
     price: "",
     stock: "",
+    sold: "",
     rating: "",
   });
  
@@ -17,6 +18,7 @@ const ToyForm = ({ toy, setEditingToy, fetchToys }) => {
         description: toy.description,
         price: toy.price,
         stock: toy.stock,
+        sold: toy.sold,
         rating: toy.rating,
       });
     }
@@ -28,6 +30,9 @@ const ToyForm = ({ toy, setEditingToy, fetchToys }) => {
   };
 
   const handleSubmit = async (e) => {
+  
+    console.log("FormData being submitted:", formData);
+
     e.preventDefault();
     if (toy) {
       await updateToy(toy.id, formData);
@@ -56,6 +61,7 @@ const ToyForm = ({ toy, setEditingToy, fetchToys }) => {
         className="w-full p-2 border rounded"
         required
       />
+
       <textarea
         name="description"
         value={formData.description}
@@ -64,6 +70,7 @@ const ToyForm = ({ toy, setEditingToy, fetchToys }) => {
         className="w-full p-2 border rounded"
         required
       ></textarea>
+
       <input
         type="number"
         name="price"
@@ -73,6 +80,7 @@ const ToyForm = ({ toy, setEditingToy, fetchToys }) => {
         className="w-full p-2 border rounded"
         required
       />
+
       <input
         type="number"
         name="stock"
@@ -82,6 +90,17 @@ const ToyForm = ({ toy, setEditingToy, fetchToys }) => {
         className="w-full p-2 border rounded"
         required
       />
+
+      <input
+        type="number"
+        name="sold"
+        value={formData.sold}
+        onChange={handleChange}
+        placeholder="Sold"
+        className="border p-2 w-full"
+        required
+      />
+
       <input
         type="number"
         name="rating"
@@ -91,11 +110,14 @@ const ToyForm = ({ toy, setEditingToy, fetchToys }) => {
         className="w-full p-2 border rounded"
         required
       />
+
       <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">
         {toy ? "Update Toy" : "Add Toy"}
       </button>
+
     </form>
   );
 };
 
 export default ToyForm;
+  
