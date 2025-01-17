@@ -12,9 +12,10 @@ function App() {
           Task Management
         </h1>
 
-        <TasksPage />
         <PuzzlesPage />
         <ToysPage/>
+        <TasksPage />
+
 
       </div>
     </div>

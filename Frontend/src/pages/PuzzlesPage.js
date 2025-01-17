@@ -35,18 +35,22 @@ const PuzzlesPage = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto space-y-4">
+    <div className="grid grid-cols-3 gap-4">
       <PuzzleForm
         puzzle={editingPuzzle}
         fetchPuzzles={fetchPuzzles}
         setEditingPuzzle={setEditingPuzzle}
       />
-      <PuzzleFilter onFilterChange={handleFilterChange} />
-      <PuzzleList
-        puzzles={filteredPuzzles}
-        onEdit={setEditingPuzzle}
-        onDelete={handleDelete}
-      />
+
+
+      <div className="col-span-2">
+        <PuzzleFilter onFilterChange={handleFilterChange} />
+        <PuzzleList
+          puzzles={filteredPuzzles}
+          onEdit={setEditingPuzzle}
+          onDelete={handleDelete}
+        />
+      </div>
     </div>
   );
 };
