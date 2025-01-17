@@ -23,7 +23,7 @@ class Puzzle(models.Model):
     stock = models.PositiveIntegerField()
     sold = models.PositiveIntegerField(default=0)
     description = models.TextField(blank=True)
-    image = models.ImageField(upload_to=puzzle_image_path, blank=True, null=True) 
+    image = models.ImageField(upload_to=puzzle_image_path, blank=True, null=True)
     rating = models.PositiveSmallIntegerField(default=0)
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(auto_now=True)
